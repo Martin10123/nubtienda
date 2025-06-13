@@ -26,6 +26,10 @@ const menuItems = [
             <Link
                 :href="item.route"
                 class="flex items-center gap-2 px-2 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer border-b lg:border-none"
+                :class="{
+                    'bg-blue-200': $page.url === item.route,
+                    'text-blue-500': $page.url === item.route,
+                }"
             >
                 <AppIcon class="size-5" :name="item.icon" />
                 {{ item.label }}

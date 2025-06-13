@@ -183,27 +183,27 @@ import AppIcon from "@/Components/AppIcon.vue";
                             title="Agregar Producto"
                         />
                         <ActionButtonShort
-                            description="Añade un nuevo producto a tu catálogo"
+                            description="Revisa consultas de clientes"
                             icon-path="message-square"
                             title="Ver mensajes"
                         />
                         <ActionButtonShort
-                            description="Añade un nuevo producto a tu catálogo"
+                            description="Actualiza stock de productos"
                             icon-path="package"
                             title="Gestionar inventario"
                         />
                         <ActionButtonShort
-                            description="Añade un nuevo producto a tu catálogo"
+                            description="Obten el enlace de tu tienda"
                             icon-path="share-2"
                             title="Compartir tienda"
                         />
                         <ActionButtonShort
-                            description="Añade un nuevo producto a tu catálogo"
+                            description="Análisis de ventas y rendimiento"
                             icon-path="chart-column"
                             title="Ver estadisticas"
                         />
                         <ActionButtonShort
-                            description="Añade un nuevo producto a tu catálogo"
+                            description="Personaliza la apariencia de tu tienda"
                             icon-path="settings"
                             title="Configuración"
                         />

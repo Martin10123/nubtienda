@@ -133,5 +133,18 @@ import AppIcon from "@/Components/AppIcon.vue";
                 </div>
             </div>
         </div>
+
+        <div class="flex justify-end gap-2 mt-2">
+            <button
+                class="mt-4 border px-4 py-2 rounded-md hover:bg-gray-100 transition-colors"
+            >
+                Cancelar
+            </button>
+            <button
+                class="mt-4 border px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+            >
+                Guardar cambios
+            </button>
+        </div>
     </section>
 </template>
