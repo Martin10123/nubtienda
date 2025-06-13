@@ -1,17 +1,14 @@
 <script setup lang="ts">
 import SocialNetworkItem from "@/Components/SocialNetworkItem.vue";
-import TextInput from "@/Components/TextInput.vue";
+import AppIcon from "@/Components/AppIcon.vue";
 </script>
 
 <template>
     <section class="p-4">
         <div class="p-4 border rounded-lg lg:p-6">
             <h2 class="text-2xl font-bold flex items-center gap-2">
-                <img
-                    class="size-6"
-                    src="/icons/socialnetwork.svg"
-                    alt="contact icon"
-                />
+                <AppIcon class="size-6" name="messages-square" />
+
                 Redes Sociales
             </h2>
             <p class="text-gray-500 text-sm mb-6">
@@ -59,11 +56,8 @@ import TextInput from "@/Components/TextInput.vue";
 
         <div class="p-4 border rounded-lg mt-4 lg:p-6">
             <h2 class="text-2xl font-bold flex items-center gap-2">
-                <img
-                    class="size-6"
-                    src="/icons/contact.svg"
-                    alt="contact icon"
-                />
+                <AppIcon class="size-6" name="scan-eye" />
+
                 Vista Previa
             </h2>
             <p class="text-gray-500 text-sm mb-6">

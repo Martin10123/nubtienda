@@ -2,6 +2,7 @@
 import NavigationMenu from "@/Components/NavigationMenu.vue";
 import { ref } from "vue";
 import LogoutButton from "./LogoutButton.vue";
+import AppIcon from "@/Components/AppIcon.vue";
 
 defineProps({ title: String });
 
@@ -19,22 +20,10 @@ const openMenu = ref(false);
 
             <div>
                 <button
-                    class="bg-blue-200 p-1 rounded-lg shadow-sm cursor-pointer hover:bg-gray-400 transition-colors duration-200 lg:hidden"
+                    class="bg-gray-200 p-1 rounded-lg shadow-sm cursor-pointer hover:bg-gray-300 transition-colors lg:hidden"
                     @click="openMenu = !openMenu"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="size-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                        />
-                    </svg>
+                    <AppIcon class="size-5" name="menu" />
                 </button>
 
                 <NavigationMenu :openMenu="openMenu" />

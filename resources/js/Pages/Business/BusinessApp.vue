@@ -3,6 +3,8 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import GeneralInformation from "./GeneralInformation.vue";
 import ContactDelivery from "./ContactDelivery.vue";
 import SocialNetwork from "./SocialNetwork.vue";
+import PoliticsTerms from "./PoliticsTerms.vue";
+import AppIcon from "@/Components/AppIcon.vue";
 </script>
 
 <template>
@@ -16,51 +18,36 @@ import SocialNetwork from "./SocialNetwork.vue";
                 <button
                     class="flex items-center justify-center gap-2 w-full p-2 rounded-md cursor-pointer text-black bg-white"
                 >
-                    <img
-                        class="size-6"
-                        src="/icons/information.svg"
-                        alt="information"
-                    />
+                    <AppIcon class="size-6" name="badge-info" />
+
                     <span class="hidden lg:block">Información basica</span>
                 </button>
                 <button
                     class="flex items-center justify-center gap-2 w-full p-2 rounded-md cursor-pointer text-gray-500 hover:bg-white duration-300"
                 >
-                    <img
-                        class="size-6"
-                        src="/icons/contact.svg"
-                        alt="contact"
-                    />
+                    <AppIcon class="size-6" name="headset" />
+
                     <span class="hidden lg:block">Contacto y entrega</span>
                 </button>
                 <button
                     class="flex items-center justify-center gap-2 w-full p-2 rounded-md cursor-pointer text-gray-500 hover:bg-white duration-300"
                 >
-                    <img
-                        class="size-6"
-                        src="/icons/socialNetwork.svg"
-                        alt="socialNetwork"
-                    />
+                    <AppIcon class="size-6" name="messages-square" />
+
                     <span class="hidden lg:block">Redes sociales</span>
                 </button>
                 <button
                     class="flex items-center justify-center gap-2 w-full p-2 rounded-md cursor-pointer text-gray-500 hover:bg-white duration-300"
                 >
-                    <img
-                        class="size-6"
-                        src="/icons/polityPrivacity.svg"
-                        alt="polityPrivacity"
-                    />
+                    <AppIcon class="size-6" name="scroll-text" />
+
                     <span class="hidden lg:block">Politicas</span>
                 </button>
                 <button
                     class="flex items-center justify-center gap-2 w-full p-2 rounded-md cursor-pointer text-gray-500 hover:bg-white duration-300"
                 >
-                    <img
-                        class="size-6"
-                        src="/icons/settingsIcon.svg"
-                        alt="settingsIcon"
-                    />
+                    <AppIcon class="size-6" name="settings" />
+
                     <span class="hidden lg:block">Configuración</span>
                 </button>
             </div>
@@ -68,8 +55,9 @@ import SocialNetwork from "./SocialNetwork.vue";
 
         <!-- Información basica -->
 
-        <!-- <GeneralInformation /> -->
-        <!-- <ContactDelivery /> -->
-        <SocialNetwork />
+        <!-- <GeneralInformation />
+        <ContactDelivery />
+        <SocialNetwork /> -->
+        <PoliticsTerms />
     </AppLayout>
 </template>

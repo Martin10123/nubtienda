@@ -2,6 +2,7 @@
 import InputLabel from "@/Components/InputLabel.vue";
 import TextInput from "@/Components/TextInput.vue";
 import InputError from "@/Components/InputError.vue";
+import AppIcon from "@/Components/AppIcon.vue";
 
 const categoriasBusiness = [
     "Ropa y Accesorios",
@@ -40,11 +41,8 @@ const categoriasBusiness = [
             <h3
                 class="text-2xl font-bold tracking-tight flex items-center gap-2"
             >
-                <img
-                    class="size-6"
-                    src="/icons/storeIcon.svg"
-                    alt="storeIcon"
-                />
+                <AppIcon class="size-6" name="store" />
+
                 Información Principal
             </h3>
 
@@ -66,10 +64,9 @@ const categoriasBusiness = [
                             <div
                                 class="w-20 h-20 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center"
                             >
-                                <img
-                                    class="size-8"
-                                    src="/icons/uploadIcon.svg"
-                                    alt="uploadIcon"
+                                <AppIcon
+                                    class="size-6 text-gray-400"
+                                    name="upload"
                                 />
                             </div>
 
@@ -77,11 +74,8 @@ const categoriasBusiness = [
                                 <button
                                     class="flex items-center gap-2 border hover:bg-gray-100 px-4 py-2 rounded-md transition-colors"
                                 >
-                                    <img
-                                        class="size-5"
-                                        src="/icons/uploadIcon.svg"
-                                        alt="uploadIcon"
-                                    />
+                                    <AppIcon class="size-5" name="upload" />
+
                                     <span>Subir logo</span>
                                 </button>
 
@@ -133,7 +127,7 @@ const categoriasBusiness = [
                             value="Descripción de tu negocio *"
                         />
                         <textarea
-                            class="mt-2 block w-full h-40 resize-none border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            class="mt-2 block w-full text-sm h-40 resize-none border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                             placeholder="Escribe una breve descripción de tu negocio, lo que ofreces y lo que te hace especial..."
                         />
                         <InputError class="mt-2" />

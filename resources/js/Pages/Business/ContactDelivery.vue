@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AppIcon from "@/Components/AppIcon.vue";
 import InputError from "@/Components/InputError.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import InputTime from "@/Components/InputTime.vue";
@@ -10,11 +11,8 @@ import TextInput from "@/Components/TextInput.vue";
     <section class="p-4">
         <div class="p-4 border rounded-lg">
             <h2 class="text-2xl font-bold flex items-center gap-2">
-                <img
-                    class="size-6"
-                    src="/icons/contact.svg"
-                    alt="contact icon"
-                />
+                <AppIcon class="size-6" name="headset" />
+
                 Información de Contacto
             </h2>
             <p class="text-gray-500 text-sm mb-6">
@@ -79,11 +77,8 @@ import TextInput from "@/Components/TextInput.vue";
 
         <div class="p-4 border rounded-lg my-5">
             <h2 class="text-xl font-semibold mb-2 flex items-center gap-2">
-                <img
-                    class="size-6"
-                    src="/icons/clockIcon.svg"
-                    alt="clockIcon"
-                />
+                <AppIcon class="size-6" name="clock-2" />
+
                 Horarios de Atención
             </h2>
             <p class="text-gray-600 text-sm mb-4">
@@ -103,7 +98,7 @@ import TextInput from "@/Components/TextInput.vue";
 
         <div class="p-4 border rounded-lg">
             <h2 class="text-xl font-semibold mb-1 flex items-center gap-2">
-                <img class="size-6" src="/icons/mapIcon.svg" alt="mapIcon" />
+                <AppIcon class="size-6" name="truck" />
                 Métodos de Entrega
             </h2>
             <p class="text-gray-600 text-sm mb-4">

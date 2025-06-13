@@ -1,15 +1,16 @@
 <script setup>
+import AppIcon from "./AppIcon.vue";
 import LogoutButton from "./LogoutButton.vue";
 import { Link } from "@inertiajs/vue3";
 
 defineProps({ openMenu: Boolean });
 
 const menuItems = [
-    { label: "Inicio", icon: "/icons/homeIcon.svg", route: "/dashboard" },
-    { label: "Empresa", icon: "/icons/business.svg", route: "/business" },
-    { label: "Tienda", icon: "/icons/storeIcon.svg", route: "/store" },
-    { label: "Noticias", icon: "/icons/newsIcon.svg", route: "/news" },
-    { label: "Perfil", icon: "/icons/profileIcon.svg", route: "/profile" },
+    { label: "Inicio", icon: "house", route: "/dashboard" },
+    { label: "Empresa", icon: "building-2", route: "/business" },
+    { label: "Tienda", icon: "store", route: "/store" },
+    { label: "Noticias", icon: "newspaper", route: "/news" },
+    { label: "Perfil", icon: "user", route: "/profile" },
 ];
 </script>
 
@@ -26,7 +27,7 @@ const menuItems = [
                 :href="item.route"
                 class="flex items-center gap-2 px-2 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer border-b lg:border-none"
             >
-                <img :src="item.icon" alt="" class="size-6" />
+                <AppIcon class="size-5" :name="item.icon" />
                 {{ item.label }}
             </Link>
         </li>
