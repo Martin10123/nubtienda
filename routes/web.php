@@ -20,4 +20,8 @@ Route::middleware([
     Route::get('/business', function () {
         return Inertia::render('Business/BusinessApp');
     })->name('business');
+
+    Route::get('/profile', function () {
+        return Inertia::render('Profile/Profile');
+    })->name('profile');
 });

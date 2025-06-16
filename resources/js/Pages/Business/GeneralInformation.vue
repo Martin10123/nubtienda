@@ -36,7 +36,7 @@ const categoriasBusiness = [
 </script>
 
 <template>
-    <section class="p-4">
+    <section>
         <div class="border p-3 rounded-md lg:p-6">
             <h3
                 class="text-2xl font-bold tracking-tight flex items-center gap-2"

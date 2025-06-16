@@ -35,7 +35,7 @@ const themesBusiness = [
 </script>
 
 <template>
-    <section class="p-4">
+    <section>
         <div class="p-4 border rounded-lg lg:p-6">
             <h2 class="text-xl font-bold flex items-center gap-2">
                 <AppIcon class="size-6" name="settings" />
