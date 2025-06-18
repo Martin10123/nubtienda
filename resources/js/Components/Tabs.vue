@@ -24,7 +24,7 @@ const ActiveComponent = computed(
     <div>
         <!-- Botones de tabs -->
         <div
-            class="grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-2 w-full bg-gray-50 rounded-md p-1 mt-6"
+            class="grid grid-cols-[repeat(auto-fit,minmax(60px,1fr))] gap-2 w-full bg-gray-50 rounded-md p-1 mt-6"
         >
             <button
                 v-for="(tab, index) in tabs"

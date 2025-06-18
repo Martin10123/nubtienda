@@ -19,7 +19,7 @@ defineProps({
         >
             <div>
                 <h2 class="text-2xl font-bold flex items-center gap-2">
-                    <AppIcon class="size-6" :name="icon" />
+                    <AppIcon class="size-6" :name="icon" v-if="!!icon" />
                     {{ title }}
                 </h2>
 
