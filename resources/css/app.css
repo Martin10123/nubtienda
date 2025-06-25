@@ -5,3 +5,9 @@
 [x-cloak] {
     display: none;
 }
+
+[type="checkbox"]:checked,
+[type="radio"]:checked {
+    background-color: black;
+    color: black;
+}

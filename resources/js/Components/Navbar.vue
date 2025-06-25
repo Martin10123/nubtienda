@@ -3,6 +3,7 @@ import NavigationMenu from "@/Components/NavigationMenu.vue";
 import { ref } from "vue";
 import LogoutButton from "./LogoutButton.vue";
 import AppIcon from "@/Components/AppIcon.vue";
+import { Link } from "@inertiajs/vue3";
 
 defineProps({ title: String });
 
@@ -12,11 +13,13 @@ const openMenu = ref(false);
 <template>
     <header class="shadow-md p-2">
         <nav class="container px-4 mx-auto flex items-center justify-between">
-            <img
-                class="size-14 rounded-full cursor-pointer"
-                src="/images/logoApp.webp"
-                alt="Logo"
-            />
+            <Link href="/dashboard">
+                <img
+                    class="size-14 rounded-full cursor-pointer"
+                    src="/images/logoApp.webp"
+                    alt="Logo"
+                />
+            </Link>
 
             <div>
                 <button

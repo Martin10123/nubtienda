@@ -1,13 +1,10 @@
 <script setup>
-import { ref } from "vue";
 import { Head } from "@inertiajs/vue3";
 import Navbar from "@/Components/Navbar.vue";
 
 defineProps({
     title: String,
 });
-
-const openMenu = ref(false);
 </script>
 
 <template>

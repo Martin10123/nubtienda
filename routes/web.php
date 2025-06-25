@@ -21,6 +21,10 @@ Route::middleware([
         return Inertia::render('Business/BusinessApp');
     })->name('business');
 
+    Route::get('/store', function () {
+        return Inertia::render('Store/StoreApp');
+    })->name('store');
+
     Route::get('/profile', function () {
         return Inertia::render('Profile/Profile');
     })->name('profile');
