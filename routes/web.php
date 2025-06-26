@@ -25,6 +25,10 @@ Route::middleware([
         return Inertia::render('Store/StoreApp');
     })->name('store');
 
+     Route::get('/inventory', function () {
+        return Inertia::render('Inventory/InventoryApp');
+    })->name('inventory');
+
     Route::get('/profile', function () {
         return Inertia::render('Profile/Profile');
     })->name('profile');

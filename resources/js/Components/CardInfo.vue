@@ -4,6 +4,10 @@ import AppIcon from "./AppIcon.vue";
 defineProps({
     title: String,
     iconPath: String,
+    iconColor: {
+        type: String,
+        default: "text-gray-500",
+    },
     amount: String,
     variation: String,
     variationColor: {
@@ -15,10 +19,10 @@ defineProps({
 </script>
 
 <template>
-    <div class="rounded-lg border bg-card shadow-sm p-6">
+    <div class="rounded-lg border bg-white shadow-sm p-6">
         <div class="flex flex-row items-center justify-between space-y-0 pb-2">
             <h3 class="tracking-tight text-sm font-medium">{{ title }}</h3>
-            <AppIcon class="size-4 text-[#71717a]" :name="iconPath" />
+            <AppIcon class="size-4" :name="iconPath" :class="iconColor" />
         </div>
 
         <div>
@@ -29,6 +33,7 @@ defineProps({
                         'inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors text-white text-xs border-transparent',
                         variationColor,
                     ]"
+                    v-if="variation"
                 >
                     {{ variation }}
                 </p>

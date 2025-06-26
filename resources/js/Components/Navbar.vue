@@ -11,7 +11,7 @@ const openMenu = ref(false);
 </script>
 
 <template>
-    <header class="shadow-md p-2">
+    <header class="shadow-md p-2 bg-white">
         <nav class="container px-4 mx-auto flex items-center justify-between">
             <Link href="/dashboard">
                 <img

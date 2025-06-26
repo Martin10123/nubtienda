@@ -53,6 +53,19 @@ const closeOnEscape = (e) => {
     }
 };
 
+const maxWidthClasses = {
+    sm: "lg:max-w-sm",
+    md: "lg:max-w-md",
+    lg: "lg:max-w-lg",
+    xl: "lg:max-w-xl",
+    "2xl": "lg:max-w-2xl",
+    "3xl": "lg:max-w-3xl",
+    "4xl": "lg:max-w-4xl",
+    "5xl": "lg:max-w-5xl",
+    "6xl": "lg:max-w-6xl",
+    "7xl": "lg:max-w-7xl",
+};
+
 onMounted(() => document.addEventListener("keydown", closeOnEscape));
 
 onUnmounted(() => {
@@ -98,7 +111,7 @@ onUnmounted(() => {
                 <div
                     v-show="show"
                     class="mb-6 bg-white rounded-lg overflow-auto shadow-xl transform transition-all lg:max-h-[92vh] sm:max-w-xl sm:mx-auto"
-                    :class="`lg:max-w-${maxWidth}`"
+                    :class="maxWidthClasses[maxWidth]"
                 >
                     <slot v-if="showSlot" />
                 </div>

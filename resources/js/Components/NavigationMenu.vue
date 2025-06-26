@@ -9,7 +9,7 @@ const menuItems = [
     { label: "Inicio", icon: "house", route: "/dashboard" },
     { label: "Empresa", icon: "building-2", route: "/business" },
     { label: "Tienda", icon: "store", route: "/store" },
-    { label: "Noticias", icon: "newspaper", route: "/news" },
+    { label: "Inventario", icon: "warehouse", route: "/inventory" },
     { label: "Perfil", icon: "user", route: "/profile" },
 ];
 </script>
@@ -25,10 +25,10 @@ const menuItems = [
         <li v-for="item in menuItems" :key="item.label">
             <Link
                 :href="item.route"
-                class="flex items-center gap-2 px-2 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer border-b lg:border-none"
+                class="flex items-center gap-2 px-2 py-3 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors duration-200 cursor-pointer border-b lg:border-none"
                 :class="{
-                    'bg-blue-200': $page.url === item.route,
-                    'text-blue-500': $page.url === item.route,
+                    '!text-black bg-gray-200 font-semibold':
+                        $page.url === item.route,
                 }"
             >
                 <AppIcon class="size-5" :name="item.icon" />
