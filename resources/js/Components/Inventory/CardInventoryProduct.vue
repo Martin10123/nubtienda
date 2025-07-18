@@ -10,9 +10,7 @@ const showHistoryModal = ref(false);
 </script>
 
 <template>
-    <div
-        class="border p-4 rounded-lg sm:grid sm:grid-cols-2 lg:flex lg:items-center lg:justify-between gap-6"
-    >
+    <div class="border p-4 rounded-lg sm:grid sm:grid-cols-2 lg:flex lg:items-center lg:justify-between gap-6">
         <InfoProductCard />
 
         <div class="lg:flex lg:items-center gap-4">
@@ -22,9 +20,7 @@ const showHistoryModal = ref(false);
                         5
                     </p>
                     <p class="text-gray-500 text-sm">Stock actual</p>
-                    <p
-                        class="inline-flex border px-4 py-1 rounded-xl text-sm font-semibold"
-                    >
+                    <p class="inline-flex border px-4 py-1 rounded-xl text-sm font-semibold">
                         En stock
                     </p>
                 </div>
@@ -39,23 +35,15 @@ const showHistoryModal = ref(false);
 
             <div class="grid grid-cols-3 gap-4">
                 <button
-                    class="border border-gray-300 rounded-lg p-2 hover:bg-gray-100 transition-colors flex justify-center items-center"
-                >
+                    class="border border-gray-300 rounded-lg p-2 hover:bg-gray-100 transition-colors flex justify-center items-center">
                     <AppIcon class="size-5" name="minus" />
                 </button>
 
-                <input
-                    type="number"
-                    class="w-full p-2 border border-gray-300 rounded-lg text-center"
-                    placeholder="Cantidad"
-                    min="1"
-                    max="1000"
-                    value="0"
-                />
+                <input type="number" class="w-full p-2 border border-gray-300 rounded-lg text-center"
+                    placeholder="Cantidad" min="1" max="1000" value="0" />
 
                 <button
-                    class="border border-gray-300 rounded-lg p-2 hover:bg-gray-100 transition-colors flex justify-center items-center"
-                >
+                    class="border border-gray-300 rounded-lg p-2 hover:bg-gray-100 transition-colors flex justify-center items-center">
                     <AppIcon class="size-5" name="plus" />
                 </button>
             </div>
@@ -63,16 +51,14 @@ const showHistoryModal = ref(false);
             <div class="grid grid-cols-1 gap-2 mt-6 lg:mt-0 lg:gap-4">
                 <button
                     class="border border-gray-300 rounded-lg p-2 hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
-                    @click="showModal = true"
-                >
+                    @click="showModal = true">
                     <AppIcon class="size-5" name="edit" />
                     Ajustar
                 </button>
 
                 <button
-                    class="border border-gray-300 rounded-lg p-2 hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
-                    @click="showHistoryModal = true"
-                >
+                    class=" rounded-lg p-2 hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+                    @click="showHistoryModal = true">
                     <AppIcon class="size-5" name="clock" />
                     Historial
                 </button>
@@ -80,15 +66,7 @@ const showHistoryModal = ref(false);
         </div>
     </div>
 
-    <ModalStockInventory
-        :show="showModal"
-        @close="showModal = false"
-        :closeable="true"
-    />
+    <ModalStockInventory :show="showModal" @close="showModal = false" :closeable="true" />
 
-    <ModalHistoryProduct
-        :show="showHistoryModal"
-        @close="showHistoryModal = false"
-        :closeable="true"
-    />
+    <ModalHistoryProduct :show="showHistoryModal" @close="showHistoryModal = false" :closeable="true" />
 </template>

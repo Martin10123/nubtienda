@@ -19,44 +19,18 @@ import OptionsInventory from "@/Components/Inventory/OptionsInventory.vue";
                     </p>
                 </div>
 
-                <OptionsInventory />
+                <OptionsInventory titleButton="Ajustar stock" />
             </div>
 
-            <div
-                class="grid grid-cols-1 my-6 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-            >
-                <CardInfo
-                    title="Valor Total Inventario"
-                    iconPath="dollar-sign"
-                    icon-color="text-green-500"
-                    amount="$3,850,000"
-                    variation="+5%"
-                    comparisonText="este mes"
-                />
-                <CardInfo
-                    title="Productos en Stock"
-                    iconPath="package"
-                    icon-color="text-blue-500"
-                    amount="42"
-                    variation=""
-                    comparisonText="de 45 productos"
-                />
-                <CardInfo
-                    title="Stock Bajo"
-                    iconPath="triangle-alert"
-                    icon-color="text-yellow-500"
-                    amount="3"
-                    variation=""
-                    comparisonText="Requieren reposición"
-                />
-                <CardInfo
-                    title="Productos Agotados"
-                    iconPath="trending-down"
-                    icon-color="text-red-500"
-                    amount="1"
-                    variation=""
-                    comparisonText="Sin stock disponible"
-                />
+            <div class="grid grid-cols-1 my-6 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <CardInfo title="Valor Total Inventario" iconPath="dollar-sign" icon-color="text-green-500"
+                    amount="$3,850,000" variation="+5%" comparisonText="este mes" />
+                <CardInfo title="Productos en Stock" iconPath="package" icon-color="text-blue-500" amount="42"
+                    variation="" comparisonText="de 45 productos" />
+                <CardInfo title="Stock Bajo" iconPath="triangle-alert" icon-color="text-yellow-500" amount="3"
+                    variation="" comparisonText="Requieren reposición" />
+                <CardInfo title="Productos Agotados" iconPath="trending-down" icon-color="text-red-500" amount="1"
+                    variation="" comparisonText="Sin stock disponible" />
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-md">
