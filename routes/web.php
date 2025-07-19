@@ -33,6 +33,10 @@ Route::middleware([
         return Inertia::render('Products/ProductsApp');
     })->name('products');
 
+    Route::get('/directory', function () {
+        return Inertia::render('DirectoryStores/DirectoryStoresApp');
+    })->name('directory');
+
     Route::get('/profile', function () {
         return Inertia::render('Profile/Profile');
     })->name('profile');
