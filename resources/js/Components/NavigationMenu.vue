@@ -7,10 +7,10 @@ defineProps({ openMenu: Boolean });
 
 const menuItems = [
     { label: "Inicio", icon: "house", route: "/dashboard" },
-    { label: "Empresa", icon: "building-2", route: "/business" },
     { label: "Tienda", icon: "store", route: "/store" },
-    { label: "Productos", icon: "gallery-vertical-end", route: "/products" },
+    { label: "Mensajes", icon: "message-square", route: "/messages" },
     { label: "Inventario", icon: "warehouse", route: "/inventory" },
+    { label: "Productos", icon: "gallery-vertical-end", route: "/products" },
     { label: "Directorio", icon: "layout-list", route: "/directory" },
     { label: "Perfil", icon: "user", route: "/profile" },
 ];
