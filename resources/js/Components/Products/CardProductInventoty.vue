@@ -3,9 +3,24 @@ import { ref } from 'vue';
 import AppIcon from '../AppIcon.vue';
 import OptionsProduct from './OptionsProduct.vue';
 import { useToggleModal } from '@/Composable/useToggleModal';
+import ModalViewProductInventory from './ModalViewProductInventory.vue';
+import ModalEditProductInventory from './ModalEditProductInventory.vue';
 
 const dropdownRef = ref(null)
+
 const { isOpen: openOptions, toggle: toggleOptions, setupClickOutside } = useToggleModal()
+
+const viewModalProductInventory = ref(false)
+const editModalProductInventory = ref(false)
+
+const toggleViewModalProductInventory = () => {
+    viewModalProductInventory.value = !viewModalProductInventory.value;
+}
+
+const toggleEditModalProductInventory = () => {
+    editModalProductInventory.value = !editModalProductInventory.value;
+}
+
 
 setupClickOutside(dropdownRef)
 </script>
@@ -56,12 +71,20 @@ setupClickOutside(dropdownRef)
                     <AppIcon class="hidden cursor-pointer size-5 lg:block" name="ellipsis" @click="toggleOptions" />
 
                     <Transition name="fade-slide">
-                        <OptionsProduct v-if="openOptions" />
+                        <OptionsProduct v-if="openOptions"
+                            :toggle-view-modal-product-inventory="toggleViewModalProductInventory"
+                            :toggle-edit-modal-product-inventory="toggleEditModalProductInventory" />
                     </Transition>
                 </div>
             </div>
         </div>
     </div>
+
+    <ModalViewProductInventory :show="viewModalProductInventory" @close="toggleViewModalProductInventory"
+        :closeable="true" />
+
+    <ModalEditProductInventory :show="editModalProductInventory" @close="toggleEditModalProductInventory"
+        :closeable="true" />
 </template>
 
 <style scoped>
