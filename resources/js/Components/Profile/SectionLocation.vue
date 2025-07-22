@@ -1,8 +1,17 @@
-<script setup lang="ts">
+<script setup>
 import InputError from "../InputError.vue";
 import TextInput from "@/Components/TextInput.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import { citiesArray } from "@/Data/citiesArray";
+import { useForm, usePage } from "@inertiajs/vue3";
+
+const { auth } = usePage().props;
+
+const formData = useForm({
+    country: auth.user?.country || "Colombia",
+    city: auth.user?.city || "",
+    address: auth.user?.address || "",
+});
 </script>
 
 <template>
@@ -16,8 +25,9 @@ import { citiesArray } from "@/Data/citiesArray";
             <select
                 id="country"
                 class="mt-2 block w-full p-2.5 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                v-model="formData.country"
             >
-                <option value="colombia" selected disabled>Colombia</option>
+                <option value="Colombia" selected disabled>Colombia</option>
             </select>
             <InputError class="mt-2" />
         </div>
@@ -32,11 +42,12 @@ import { citiesArray } from "@/Data/citiesArray";
             <select
                 class="mt-2 block w-full p-2.5 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 id="city"
+                v-model="formData.city"
             >
                 <option
                     v-for="city in citiesArray"
                     :key="city.id"
-                    :value="city.id"
+                    :value="city.name"
                 >
                     {{ city.name }}
                 </option>
@@ -56,7 +67,7 @@ import { citiesArray } from "@/Data/citiesArray";
                 type="text"
                 class="mt-2 block w-full"
                 placeholder="Calle 85 #15-20..."
-                required
+                v-model="formData.address"
             />
             <InputError class="mt-2" />
         </div>

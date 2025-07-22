@@ -1,34 +1,64 @@
 <script setup>
-import { Head, Link, useForm } from '@inertiajs/vue3';
-import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import { Head, Link, useForm } from "@inertiajs/vue3";
+import AuthenticationCard from "@/Components/AuthenticationCard.vue";
+import AuthenticationCardLogo from "@/Components/AuthenticationCardLogo.vue";
+import InputError from "@/Components/InputError.vue";
+import InputLabel from "@/Components/InputLabel.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+import TextInput from "@/Components/TextInput.vue";
 
 const form = useForm({
-    name: '',
-    email: '',
-    cellphone: '',
-    password: '',
-    password_confirmation: '',
+    name: "",
+    email: "",
+    cellphone: "",
+    password: "",
+    password_confirmation: "",
+    role: "customer",
     terms: false,
 });
 
-const submit = () => {
+const validateForm = () => {
+    form.clearErrors();
 
-    form.post(route('register'), {
+    if (!form.name) {
+        form.setError("name", "El nombre es obligatorio.");
+        return false;
+    }
+    if (!form.email) {
+        form.setError("email", "El correo es obligatorio.");
+        return false;
+    }
+    if (!form.cellphone) {
+        form.setError("cellphone", "El telefono es obligatorio.");
+        return false;
+    }
+    if (!form.password) {
+        form.setError("password", "La contraseña es obligatoria.");
+        return false;
+    }
+    if (form.password !== form.password_confirmation) {
+        form.setError("password_confirmation", "Las contraseñas no coinciden.");
+        return false;
+    }
+
+    return true;
+};
+
+const submit = () => {
+    if (!validateForm()) {
+        return;
+    }
+
+    form.post(route("register"), {
         onError: (errors) => {
-            console.error('Registration failed', errors);
+            console.error("Registration failed", errors);
         },
-        onFinish: () => form.reset('password', 'password_confirmation'),
+        onFinish: () => form.reset("password", "password_confirmation"),
     });
 };
 </script>
 
 <template>
-
     <Head title="Register" />
 
     <AuthenticationCard>
@@ -39,47 +69,97 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="name" value="Nombre" />
-                <TextInput id="name" v-model="form.name" type="text" class="mt-1 block w-full" required autofocus
-                    autocomplete="name" />
+                <TextInput
+                    id="name"
+                    v-model="form.name"
+                    type="text"
+                    class="mt-1 block w-full"
+                    autofocus
+                    autocomplete="name"
+                />
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
             <div class="mt-4">
+                <InputLabel for="role" value="Rol" />
+                <select
+                    id="role"
+                    v-model="form.role"
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                >
+                    <option value="customer">Cliente</option>
+                    <option value="manager">Director de tienda</option>
+                </select>
+                <InputError class="mt-2" :message="form.errors.role" />
+            </div>
+
+            <div class="mt-4">
                 <InputLabel for="email" value="Correo" />
-                <TextInput id="email" v-model="form.email" type="email" class="mt-1 block w-full" required
-                    autocomplete="username" />
+                <TextInput
+                    id="email"
+                    v-model="form.email"
+                    type="email"
+                    class="mt-1 block w-full"
+                    autocomplete="username"
+                />
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
             <div class="mt-4">
                 <InputLabel for="cellphone" value="Telefono" />
-                <TextInput id="cellphone" v-model="form.cellphone" type="number" class="mt-1 block w-full" required
-                    autocomplete="Telefono" />
+                <TextInput
+                    id="cellphone"
+                    v-model="form.cellphone"
+                    type="number"
+                    class="mt-1 block w-full"
+                    autocomplete="Telefono"
+                />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
             <div class="mt-4">
                 <InputLabel for="password" value="Contraseña" />
-                <TextInput id="password" v-model="form.password" type="password" class="mt-1 block w-full" required
-                    autocomplete="new-password" />
+                <TextInput
+                    id="password"
+                    v-model="form.password"
+                    type="password"
+                    class="mt-1 block w-full"
+                    autocomplete="new-password"
+                />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirmar Contraseña" />
-                <TextInput id="password_confirmation" v-model="form.password_confirmation" type="password"
-                    class="mt-1 block w-full" required autocomplete="new-password" />
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
+                <InputLabel
+                    for="password_confirmation"
+                    value="Confirmar Contraseña"
+                />
+                <TextInput
+                    id="password_confirmation"
+                    v-model="form.password_confirmation"
+                    type="password"
+                    class="mt-1 block w-full"
+                    autocomplete="new-password"
+                />
+                <InputError
+                    class="mt-2"
+                    :message="form.errors.password_confirmation"
+                />
             </div>
 
             <div class="flex flex-col items-end gap-4 mt-4">
-                <Link :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Ya tienes una cuenta? Inicia sesión
+                <Link
+                    :href="route('login')"
+                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                    Ya tienes una cuenta? Inicia sesión
                 </Link>
 
-                <PrimaryButton class="w-full flex justify-center" :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing">
+                <PrimaryButton
+                    class="w-full flex justify-center"
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                >
                     Registrarse
                 </PrimaryButton>
             </div>

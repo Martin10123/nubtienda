@@ -29,9 +29,9 @@ import SectionPoliticsDelivery from "@/Components/Profile/SectionPoliticsDeliver
         </SectionCardInformation>
 
         <SectionCardInformation
-            title="Políticas de Envío"
+            title="Información Profesional"
             icon="briefcase-business"
-            description="Información importante sobre tus envíos y entregas"
+            description="Detalles sobre tu actividad empresarial"
         >
             <template #content>
                 <SectionPoliticsDelivery />

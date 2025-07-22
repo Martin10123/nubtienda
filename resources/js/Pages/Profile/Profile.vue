@@ -6,6 +6,11 @@ import SettingsSegurity from "./SettingsSegurity.vue";
 import MyBusiness from "./MyBusiness.vue";
 import Invoicing from "./Invoicing.vue";
 import Tabs from "@/Components/Tabs.vue";
+import { usePage } from "@inertiajs/vue3";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
+
+const { auth } = usePage().props;
 
 const profileTabs = [
     {
@@ -25,6 +30,12 @@ const profileTabs = [
     },
     { label: "Facturación", icon: "gem", component: Invoicing },
 ];
+
+const dateMoment = format(
+    new Date(auth.user.created_at),
+    "EEEE d 'de' MMMM 'de' yyyy",
+    { locale: es }
+);
 </script>
 
 <template>
@@ -41,7 +52,9 @@ const profileTabs = [
                     />
 
                     <div>
-                        <h2 class="text-3xl font-bold">John Doe</h2>
+                        <h2 class="text-3xl font-bold">
+                            {{ auth.user.name }}
+                        </h2>
 
                         <div class="flex items-center gap-2 mt-1">
                             <p
@@ -66,7 +79,7 @@ const profileTabs = [
                             name="at-sign"
                             class="inline-block mr-2 size-4 text-gray-500"
                         />
-                        JohnDoe@email.com
+                        {{ auth.user.email }}
                     </p>
 
                     <p class="text-gray-600 text-sm">
@@ -74,7 +87,7 @@ const profileTabs = [
                             name="phone"
                             class="inline-block mr-2 size-4 text-gray-500"
                         />
-                        +57 300 123 4567
+                        +57 {{ auth.user.cellphone }}
                     </p>
 
                     <p class="text-gray-600 text-sm">
@@ -82,19 +95,34 @@ const profileTabs = [
                             name="map-pinned"
                             class="inline-block mr-2 size-4 text-gray-500"
                         />
-                        Bogotá, Colombia
+                        {{ auth.user.city }}, {{ auth.user.country }}
                     </p>
                     <p class="text-gray-600 text-sm">
                         <AppIcon
                             name="calendar"
                             class="inline-block mr-2 size-4 text-gray-500"
                         />
-                        Miembro desde Enero 2024
+                        Miembro desde
+                        {{ dateMoment }}
                     </p>
                 </div>
-                <div class="flex flex-col justify-center items-center gap-2">
+
+                <div
+                    class="flex flex-col justify-center items-center gap-2"
+                    v-if="auth.user.role === 'manager'"
+                >
                     <div class="text-2xl font-bold text-green-600 md:text-3xl">
-                        $4,250,000
+                        $0
+                    </div>
+                    <span class="text-sm text-gray-500">Ventas totales</span>
+                </div>
+
+                <div
+                    class="flex flex-col justify-center items-center gap-2"
+                    v-if="auth.user.role === 'admin'"
+                >
+                    <div class="text-2xl font-bold text-green-600 md:text-3xl">
+                        $0
                     </div>
                     <span class="text-sm text-gray-500">Ventas totales</span>
                 </div>

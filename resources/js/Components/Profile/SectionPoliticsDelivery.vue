@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { citiesArray } from "@/Data/citiesArray";
 import InputLabel from "../InputLabel.vue";
 import TextInput from "../TextInput.vue";
 import InputError from "@/Components/InputError.vue";

@@ -1,16 +1,27 @@
-<script setup lang="ts">
+<script setup>
+import { useForm, usePage } from "@inertiajs/vue3";
 import InputError from "../InputError.vue";
 import InputLabel from "../InputLabel.vue";
 import TextInput from "../TextInput.vue";
 import AppIcon from "@/Components/AppIcon.vue";
+
+const { auth } = usePage().props;
+
+const formData = useForm({
+    fullName: auth.user?.name || "",
+    email: auth.user?.email || "",
+    cellphone: auth.user?.cellphone || "",
+    birthday: auth.user?.birthday || "",
+    description: auth.user?.description || "",
+});
 </script>
 
 <template>
     <div class="flex items-center gap-4 my-4">
         <img
-            src="/icons/avatar.svg"
             alt="Avatar"
             class="size-16 rounded-full"
+            :src="auth.user?.avatar || '/icons/avatar.svg'"
         />
 
         <div>
@@ -40,7 +51,7 @@ import AppIcon from "@/Components/AppIcon.vue";
                 type="text"
                 class="mt-2 block w-full"
                 placeholder="Boutique Carolina..."
-                required
+                v-model="formData.fullName"
             />
             <InputError class="mt-2" />
         </div>
@@ -55,8 +66,8 @@ import AppIcon from "@/Components/AppIcon.vue";
                 id="email"
                 type="email"
                 class="mt-2 block w-full"
-                placeholder="Boutique Carolina..."
-                required
+                placeholder="email@correo.com..."
+                v-model="formData.email"
             />
             <InputError class="mt-2" />
         </div>
@@ -71,8 +82,8 @@ import AppIcon from "@/Components/AppIcon.vue";
                 id="cellphone"
                 type="number"
                 class="mt-2 block w-full"
-                placeholder="Boutique Carolina..."
-                required
+                placeholder="3001234567..."
+                v-model="formData.cellphone"
             />
             <InputError class="mt-2" />
         </div>
@@ -87,8 +98,8 @@ import AppIcon from "@/Components/AppIcon.vue";
                 id="birthday"
                 type="date"
                 class="mt-2 block w-full"
-                placeholder="Boutique Carolina..."
-                required
+                v-model="formData.birthday"
+                placeholder="DD/MM/YYYY"
             />
             <InputError class="mt-2" />
         </div>
@@ -103,6 +114,7 @@ import AppIcon from "@/Components/AppIcon.vue";
                 class="mt-2 block w-full text-sm h-24 resize-none border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Escribe una breve descripción de tu negocio, lo que ofreces y lo que te hace especial..."
                 id="description"
+                v-model="formData.description"
             />
             <InputError class="mt-2" />
         </div>
